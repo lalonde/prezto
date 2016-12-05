@@ -13,3 +13,33 @@ fi
 # Customize to your needs...
 export CLICOLOR=1
 export HISTCONTROL=erasedups
+
+export JAVA_HOME=`/usr/libexec/java_home`
+export GROOVY_HOME=/usr/local/Cellar/groovy/Current/libexec
+export GOPATH=/Users/dirtylittle/Sources/go
+export PATH=$PATH:/usr/local/lib/oracle:$GOPATH/bin
+alias protoc-2.5=protoc
+alias tyrion=ftyrion
+alias ent=fent
+
+fent() {
+	curl -H "Accepts: application/json" -H "X-sourceSystemId: ES-UDB" "http://entitlement.g.comcast.net/EntitlementService/account?billingAccountNum=$1&responseElements=acc,resAll,user,sa,rcad,udata"
+}
+
+ftyrion() {
+	partner="comcast"
+	idParam="serviceAccountId"
+
+	if [ ! -z "$2" ]
+	then
+	  partner=$2
+	fi
+
+	if [[ ${#1} -eq 16 || ${#1} -eq 13 ]]
+	then
+	  idParam="billingAccountId" 
+	fi
+
+	url="https://tyrion.rialto.ccp.xcal.tv:10612/tyrion/account?$idParam=$1&partner=$partner"
+	curl $url
+}
