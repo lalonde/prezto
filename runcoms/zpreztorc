@@ -38,8 +38,8 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'git' \
   'osx' \
-  'homebrew'
-
+  'homebrew' \
+  'kube-ps1'
 #
 # Autosuggestions
 #
