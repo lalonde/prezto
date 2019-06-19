@@ -13,9 +13,7 @@ fi
 # Customize to your needs...
 export CLICOLOR=1
 export HISTCONTROL=erasedups
-export JAVA_HOME=`/usr/libexec/java_home`
-export GROOVY_HOME=/usr/local/Cellar/groovy/Current/libexec
-export GOPATH=$HOME
-export PATH=$PATH:/usr/local/lib/oracle:$GOPATH/bin
-alias protoc-2.5=protoc
+
+
 alias k=kubectl
+alias t=terraform
